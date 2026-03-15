@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Casa Interiors Inc. — Премиальный дизайн интерьеров</title>
+    <meta
+      name="description"
+      content="Casa Interiors Inc. — студия премиального дизайна интерьеров. Создаем эстетичные, функциональные и продуманные пространства под ключ."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Декоративный фон для создания глубины и премиального ощущения -->
+    <div class="ambient ambient-top"></div>
+    <div class="ambient ambient-bottom"></div>
+
+    <!-- Sticky header c навигацией и ключевым CTA -->
+    <header class="site-header" id="top">
+      <div class="container header-inner">
+        <a href="#top" class="logo" aria-label="Casa Interiors Inc. главная">
+          <span class="logo-mark">CI</span>
+          <span class="logo-text">Casa Interiors Inc.</span>
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню">
+          <span></span><span></span>
+        </button>
+        <nav class="main-nav" id="mainNav">
+          <a href="#about">О студии</a>
+          <a href="#portfolio">Проекты</a>
+          <a href="#services">Услуги</a>
+          <a href="#process">Этапы</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <a class="btn btn-header" href="#lead-form">Обсудить проект</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero: мощный первый экран с акцентом на статус и ценность -->
+      <section class="hero section-reveal">
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <p class="eyebrow">Премиальная студия интерьеров</p>
+            <h1>
+              Пространства, в которых
+              <span>чувствуется статус</span>
+              и ваш характер
+            </h1>
+            <p class="hero-subtitle">
+              Проектируем и реализуем интерьеры квартир, домов и коммерческих
+              объектов под ключ: от идеи до полной комплектации.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#quiz">Собрать свой интерьер</a>
+              <a class="btn btn-ghost" href="#portfolio">Посмотреть проекты</a>
+            </div>
+            <div class="hero-meta">
+              <div>
+                <strong>120+</strong>
+                <span>реализованных проектов</span>
+              </div>
+              <div>
+                <strong>8 лет</strong>
+                <span>на рынке high-end сегмента</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="hero-image-card">
+              <img
+                src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80"
+                alt="Современный премиальный интерьер гостиной"
+              />
+            </div>
+            <div class="hero-float-card">
+              <p>Премиум-концепция за 14 дней</p>
+              <strong>С точной сметой и графиком реализации</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- О студии / positioning -->
+      <section class="about section-reveal" id="about">
+        <div class="container about-grid">
+          <div class="about-heading">
+            <p class="eyebrow">О студии</p>
+            <h2>Casa Interiors Inc. — когда эстетика работает на вашу жизнь</h2>
+          </div>
+          <div class="about-text">
+            <p>
+              Мы создаем индивидуальные интерьеры, где выверена каждая линия:
+              от планировочного сценария до тактильности материалов. Наш подход —
+              это точный баланс функциональности, архитектурной выразительности и
+              высокого уровня сервиса.
+            </p>
+            <p>
+              Проекты студии — это продуманная инвестиция в качество жизни и
+              ценность объекта. Мы сопровождаем клиента на каждом этапе,
+              сохраняя прозрачность процессов и результат, который выглядит
+              актуально и через годы.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Преимущества -->
+      <section class="benefits section-reveal">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Преимущества</p>
+            <h2>Почему нам доверяют проекты высокого класса</h2>
+          </div>
+          <div class="benefit-grid">
+            <article class="card">
+              <h3>Индивидуальная концепция</h3>
+              <p>Никаких шаблонов — интерьер строится вокруг вашего ритма жизни.</p>
+            </article>
+            <article class="card">
+              <h3>Полный цикл работ</h3>
+              <p>От брифа и 3D-визуализаций до финального декора и сдачи объекта.</p>
+            </article>
+            <article class="card">
+              <h3>Реализация под ключ</h3>
+              <p>Берем на себя управление подрядчиками, сроками и бюджетом.</p>
+            </article>
+            <article class="card">
+              <h3>Авторский надзор</h3>
+              <p>Контролируем соответствие реализации утвержденной концепции.</p>
+            </article>
+            <article class="card">
+              <h3>Продуманные планировки</h3>
+              <p>Оптимизируем каждый метр без потери ощущения свободы и света.</p>
+            </article>
+            <article class="card">
+              <h3>Комплектация и подбор</h3>
+              <p>Подбираем мебель, освещение и материалы в рамках общей идеи.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Портфолио -->
+      <section class="portfolio section-reveal" id="portfolio">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Портфолио</p>
+            <h2>Выразительные интерьеры, созданные под задачу клиента</h2>
+          </div>
+          <div class="portfolio-grid">
+            <article class="project-card project-large">
+              <img src="https://images.unsplash.com/photo-1616594039964-3d5d5d0b95af?auto=format&fit=crop&w=1400&q=80" alt="Проект Skyline Residence" />
+              <div class="project-overlay">
+                <h3>Skyline Residence</h3>
+                <p>Квартира · 184 м² · Современная классика</p>
+              </div>
+            </article>
+            <article class="project-card">
+              <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1200&q=80" alt="Проект Maison Lumière" />
+              <div class="project-overlay">
+                <h3>Maison Lumière</h3>
+                <p>Дом · 260 м² · Теплый минимализм</p>
+              </div>
+            </article>
+            <article class="project-card">
+              <img src="https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=1200&q=80" alt="Проект Atelier Office" />
+              <div class="project-overlay">
+                <h3>Atelier Office</h3>
+                <p>Офис · 340 м² · Editorial contemporary</p>
+              </div>
+            </article>
+            <article class="project-card">
+              <img src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=1200&q=80" alt="Проект Riviera Apartment" />
+              <div class="project-overlay">
+                <h3>Riviera Apartment</h3>
+                <p>Апартаменты · 128 м² · Soft luxury</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Услуги -->
+      <section class="services section-reveal" id="services">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Услуги</p>
+            <h2>Форматы сотрудничества под ваш запрос</h2>
+          </div>
+          <div class="service-list">
+            <article class="service-card"><h3>Дизайн-проект</h3><p>Полный пакет: планировки, визуализации, рабочая документация.</p></article>
+            <article class="service-card"><h3>Реализация под ключ</h3><p>Управление строительством, закупками и комплектацией объекта.</p></article>
+            <article class="service-card"><h3>Авторский надзор</h3><p>Регулярный контроль и координация подрядчиков на объекте.</p></article>
+            <article class="service-card"><h3>Комплектация</h3><p>Подбор мебели, света, текстиля и декора у проверенных поставщиков.</p></article>
+            <article class="service-card"><h3>Консультация</h3><p>Экспертный разбор вашего объекта и стратегия дальнейших действий.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Этапы работы -->
+      <section class="process section-reveal" id="process">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Как проходит работа</p>
+            <h2>Прозрачный процесс с предсказуемым результатом</h2>
+          </div>
+          <div class="timeline">
+            <article><span>01</span><h3>Бриф и консультация</h3><p>Формируем задачи, бюджет, сроки и образ будущего пространства.</p></article>
+            <article><span>02</span><h3>Концепция и планировка</h3><p>Создаем сценарии планировки и архитектурную идею проекта.</p></article>
+            <article><span>03</span><h3>Визуализация</h3><p>Фотореалистичные рендеры помогают увидеть интерьер до ремонта.</p></article>
+            <article><span>04</span><h3>Рабочая документация</h3><p>Подготавливаем полный комплект чертежей для реализации.</p></article>
+            <article><span>05</span><h3>Реализация и сопровождение</h3><p>Контролируем исполнение, комплектацию и финальную сдачу.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Промо конструктора / квиза -->
+      <section class="quiz section-reveal" id="quiz">
+        <div class="container quiz-inner">
+          <div>
+            <p class="eyebrow">Интерьерный конструктор</p>
+            <h2>Подберите стиль, бюджет и формат проекта за 3 минуты</h2>
+            <p>
+              Пройдите умный подборщик: выберите предпочтения по эстетике,
+              планировке и уровню комплектации, чтобы получить персональное
+              предложение от студии.
+            </p>
+            <a class="btn btn-primary" href="#lead-form">Пройти подбор интерьера</a>
+          </div>
+          <div class="quiz-steps">
+            <div><strong>Шаг 1</strong><span>Тип объекта и площадь</span></div>
+            <div><strong>Шаг 2</strong><span>Стилистические предпочтения</span></div>
+            <div><strong>Шаг 3</strong><span>Бюджет и сроки реализации</span></div>
+            <div><strong>Шаг 4</strong><span>Контакты и персональная консультация</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Отзывы -->
+      <section class="reviews section-reveal">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Отзывы клиентов</p>
+            <h2>Нас рекомендуют тем, кто ценит качество и сервис</h2>
+          </div>
+          <div class="review-grid">
+            <article class="review-card"><p>«Команда создала интерьер, который на 100% отражает нас. Все этапы — спокойно, четко, с уважением к бюджету.»</p><h3>Анна и Игорь, ЖК премиум-класса</h3></article>
+            <article class="review-card"><p>«Особенно ценим авторский надзор: студия держала проект в фокусе до последней детали. Результат выглядит дороже ожиданий.»</p><h3>Екатерина, загородный дом</h3></article>
+            <article class="review-card"><p>«Сильная архитектурная логика и безупречная эстетика. Наш офис стал частью бренда и реально влияет на восприятие клиентов.»</p><h3>Максим, основатель digital-агентства</h3></article>
+            <article class="review-card"><p>«Прозрачные этапы, корректные сроки, высокий уровень коммуникации. Очень профессионально и по-настоящему премиально.»</p><h3>Ольга, инвестиционные апартаменты</h3></article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trust section -->
+      <section class="trust section-reveal">
+        <div class="container trust-grid">
+          <div><strong>120+</strong><span>реализованных проектов</span></div>
+          <div><strong>8 лет</strong><span>опыта в high-end сегменте</span></div>
+          <div><strong>95%</strong><span>клиентов по рекомендации</span></div>
+          <div><strong>3 страны · 12 городов</strong><span>география проектов</span></div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="faq section-reveal" id="faq">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">FAQ</p>
+            <h2>Частые вопросы о сотрудничестве</h2>
+          </div>
+          <div class="faq-list">
+            <details>
+              <summary>Сколько стоит дизайн-проект?</summary>
+              <p>Стоимость зависит от площади, состава документации и уровня комплектации. После брифа формируем персональное коммерческое предложение.</p>
+            </details>
+            <details>
+              <summary>Сколько длится работа над проектом?</summary>
+              <p>В среднем от 8 до 16 недель на проектирование. Реализация зависит от объема работ и сложности инженерных решений.</p>
+            </details>
+            <details>
+              <summary>Можно ли заказать только концепцию?</summary>
+              <p>Да, доступен формат концепт-проекта с планировкой, визуальным сценарием и рекомендациями по материалам.</p>
+            </details>
+            <details>
+              <summary>Работаете ли вы дистанционно?</summary>
+              <p>Да, ведем проекты в разных городах и странах: онлайн-согласования, удаленный надзор и локальные подрядчики.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- Lead form -->
+      <section class="lead section-reveal" id="lead-form">
+        <div class="container lead-grid">
+          <div class="lead-copy">
+            <p class="eyebrow">Оставить заявку</p>
+            <h2>Обсудим ваш проект и предложим лучшее решение</h2>
+            <p>
+              Заполните форму — мы свяжемся с вами, уточним задачи и подберем
+              оптимальный формат работы под ваш объект.
+            </p>
+          </div>
+          <form class="lead-form" action="#" method="post">
+            <label>Имя<input type="text" name="name" placeholder="Ваше имя" required /></label>
+            <label>Телефон<input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required /></label>
+            <label>WhatsApp<input type="text" name="whatsapp" placeholder="@username или номер" /></label>
+            <label>Тип объекта
+              <select name="type" required>
+                <option value="">Выберите тип</option>
+                <option>Квартира</option>
+                <option>Дом</option>
+                <option>Коммерческий объект</option>
+              </select>
+            </label>
+            <label>Площадь (м²)<input type="number" name="area" min="20" placeholder="Например, 145" /></label>
+            <label class="full">Комментарий<textarea name="comment" rows="4" placeholder="Кратко опишите задачу"></textarea></label>
+            <button type="submit" class="btn btn-primary full">Отправить заявку</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <h3>Casa Interiors Inc.</h3>
+          <p>Премиальный дизайн интерьеров под ключ</p>
+          <p>© 2026 Casa Interiors Inc. Все права защищены.</p>
+        </div>
+        <div>
+          <h4>Контакты</h4>
+          <p>Email: hello@casainteriors.com</p>
+          <p>WhatsApp: +7 (999) 123-45-67</p>
+          <p>Адрес: Москва, Пресненская наб., 12</p>
+        </div>
+        <div>
+          <h4>Соцсети</h4>
+          <p>Instagram</p>
+          <p>Pinterest</p>
+          <p>Behance</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

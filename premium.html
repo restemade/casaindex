@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Casa Style Growth Plan</title>
+  <style>
+    :root{
+      --bg:#ece6dc;
+      --paper:#faf7f1;
+      --panel:#fffdf9;
+      --line:#e6dccd;
+      --text:#1d1a17;
+      --muted:#6a6258;
+      --accent:#b3916c;
+      --accent-soft:#eee3d4;
+      --dark:#22201d;
+      --shadow:0 24px 70px rgba(28,22,16,.08);
+      --radius:26px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family: "Aptos","Segoe UI",Arial,sans-serif;
+      background:
+        radial-gradient(circle at top left,#f8f3ec 0%,#efe9df 42%,#e8e0d3 100%);
+      color:var(--text);
+    }
+    h1,h2,h3,h4{
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight:700;
+    }
+    .app{
+      display:grid;
+      grid-template-columns:280px 1fr;
+      min-height:100vh;
+    }
+    .sidebar{
+      position:sticky;
+      top:0;
+      height:100vh;
+      overflow:auto;
+      padding:26px 18px;
+      background:rgba(250,247,241,.84);
+      backdrop-filter:blur(14px);
+      border-right:1px solid var(--line);
+    }
+    .brand{
+      padding:8px 8px 18px;
+      border-bottom:1px solid var(--line);
+      margin-bottom:18px;
+    }
+    .brand h1{
+      margin:0;
+      font-size:30px;
+      line-height:.98;
+      letter-spacing:-.04em;
+    }
+    .brand p{
+      margin:12px 0 0;
+      font-size:13px;
+      line-height:1.55;
+      color:var(--muted);
+      max-width:210px;
+    }
+    .nav{display:flex;flex-direction:column;gap:8px}
+    .nav button{
+      appearance:none;
+      border:1px solid transparent;
+      background:transparent;
+      color:var(--muted);
+      text-align:left;
+      padding:12px 14px;
+      border-radius:14px;
+      cursor:pointer;
+      font-size:14px;
+      font-weight:600;
+      transition:.2s ease;
+    }
+    .nav button:hover{
+      border-color:var(--line);
+      background:#f7f1e8;
+      color:var(--text);
+    }
+    .nav button.active{
+      background:var(--dark);
+      color:#fff;
+    }
+    .main{
+      padding:30px;
+    }
+    .toolbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      flex-wrap:wrap;
+      margin-bottom:18px;
+    }
+    .crumb{
+      color:var(--muted);
+      font-size:13px;
+      letter-spacing:.02em;
+    }
+    .actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      appearance:none;
+      border:1px solid var(--line);
+      background:var(--panel);
+      color:var(--text);
+      padding:11px 15px;
+      border-radius:14px;
+      cursor:pointer;
+      font-weight:600;
+      box-shadow:var(--shadow);
+    }
+    .page{
+      display:none;
+      background:rgba(255,253,249,.92);
+      border:1px solid var(--line);
+      border-radius:32px;
+      padding:30px;
+      box-shadow:var(--shadow);
+    }
+    .page.active{display:block}
+    h2{
+      margin:0 0 10px;
+      font-size:44px;
+      line-height:.98;
+      letter-spacing:-.05em;
+    }
+    h3{
+      margin:26px 0 12px;
+      font-size:24px;
+      letter-spacing:-.03em;
+    }
+    h4{
+      margin:0 0 8px;
+      font-size:18px;
+      letter-spacing:-.02em;
+    }
+    p{
+      margin:0 0 12px;
+      line-height:1.65;
+    }
+    .lead{
+      color:var(--muted);
+      max-width:920px;
+      font-size:15px;
+    }
+    .hero{
+      display:grid;
+      grid-template-columns:1.15fr .95fr;
+      gap:18px;
+      margin-top:18px;
+    }
+    .hero-main{
+      background:linear-gradient(145deg,#1f1c19,#2a251f);
+      color:#fff;
+      border-radius:28px;
+      padding:26px;
+      border:1px solid rgba(255,255,255,.06);
+    }
+    .hero-main p{color:rgba(255,255,255,.78)}
+    .hero-side{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+    }
+    .stat{
+      background:linear-gradient(180deg,#fffdfa 0%,#f8f3eb 100%);
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:18px;
+    }
+    .stat .label{
+      color:var(--muted);
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+    .stat .value{
+      margin-top:10px;
+      font-size:34px;
+      font-family:Georgia, "Times New Roman", serif;
+      letter-spacing:-.05em;
+    }
+    .stat .note{
+      margin-top:10px;
+      font-size:12px;
+      color:var(--muted);
+      line-height:1.5;
+    }
+    .grid-2,.grid-3,.grid-4{
+      display:grid;
+      gap:16px;
+    }
+    .grid-2{grid-template-columns:repeat(2,1fr)}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .grid-4{grid-template-columns:repeat(4,1fr)}
+    .card{
+      background:linear-gradient(180deg,#fffdf9,#faf6ef);
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:20px;
+    }
+    .mini{
+      font-size:13px;
+      color:var(--muted);
+      line-height:1.6;
+    }
+    .pill{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      background:var(--accent-soft);
+      color:var(--text);
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+    }
+    .table-wrap{
+      overflow:auto;
+      border:1px solid var(--line);
+      border-radius:22px;
+      background:#fff;
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+    }
+    th,td{
+      padding:15px 14px;
+      text-align:left;
+      vertical-align:top;
+      border-bottom:1px solid var(--line);
+      font-size:13px;
+      line-height:1.55;
+    }
+    th{
+      background:#faf5ed;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.05em;
+    }
+    tr:last-child td{border-bottom:none}
+    .timeline{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+    }
+    .quarter{
+      background:linear-gradient(180deg,#fffdf9,#faf6ef);
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:20px;
+    }
+    .quarter .q{
+      font-size:12px;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      margin-bottom:10px;
+      font-weight:700;
+    }
+    .month{
+      background:linear-gradient(180deg,#fffdf9,#faf7f1);
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:18px;
+      margin-bottom:14px;
+    }
+    .month-head{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:flex-start;
+      flex-wrap:wrap;
+      margin-bottom:12px;
+    }
+    .week-list{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+    }
+    .week{
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:#fbf8f2;
+      padding:14px;
+      line-height:1.58;
+      font-size:14px;
+    }
+    .week strong{
+      display:block;
+      margin-bottom:8px;
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:17px;
+    }
+    .compare-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+      margin-top:18px;
+    }
+    .compare-box{
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:20px;
+      background:linear-gradient(180deg,#fffdf9,#faf6ef);
+    }
+    .x-metric{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:10px;
+      padding:12px 0;
+      border-bottom:1px solid var(--line);
+    }
+    .x-metric:last-child{border-bottom:none}
+    .x-metric .name{
+      font-size:13px;
+      color:var(--muted);
+    }
+    .x-metric .formula{
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:22px;
+      letter-spacing:-.03em;
+    }
+    .chart-card{
+      margin-top:18px;
+      background:linear-gradient(180deg,#fffdf9,#faf6ef);
+      border:1px solid var(--line);
+      border-radius:26px;
+      padding:22px;
+    }
+    .bars{
+      display:flex;
+      gap:14px;
+      align-items:flex-end;
+      height:260px;
+      padding-top:12px;
+    }
+    .group{
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:10px;
+      min-width:0;
+    }
+    .pair{
+      width:100%;
+      height:200px;
+      display:flex;
+      align-items:flex-end;
+      justify-content:center;
+      gap:10px;
+    }
+    .bar{
+      width:42%;
+      border-radius:16px 16px 0 0;
+      min-height:12px;
+      position:relative;
+    }
+    .bar.base{
+      background:#e5dbcc;
+      border:1px solid #d9ccb8;
+    }
+    .bar.future{
+      background:linear-gradient(180deg,#d1b28f,#b3916c);
+    }
+    .bar span{
+      position:absolute;
+      top:-28px;
+      left:50%;
+      transform:translateX(-50%);
+      font-size:12px;
+      font-weight:700;
+      white-space:nowrap;
+    }
+    .bar-label{
+      font-size:12px;
+      color:var(--muted);
+      text-align:center;
+      line-height:1.45;
+    }
+    .legend{
+      display:flex;
+      gap:18px;
+      font-size:12px;
+      color:var(--muted);
+      margin-top:10px;
+    }
+    .legend .item::before{
+      content:"";
+      display:inline-block;
+      width:10px;
+      height:10px;
+      border-radius:3px;
+      margin-right:8px;
+      vertical-align:middle;
+    }
+    .legend .base::before{
+      background:#e5dbcc;
+      border:1px solid #d9ccb8;
+    }
+    .legend .future::before{
+      background:#b3916c;
+    }
+    .footer-nav{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      margin-top:24px;
+    }
+    .small{
+      font-size:12px;
+      color:var(--muted);
+    }
+    @media (max-width:1150px){
+      .app{grid-template-columns:1fr}
+      .sidebar{
+        position:relative;
+        height:auto;
+        border-right:none;
+        border-bottom:1px solid var(--line);
+      }
+      .main{padding:18px}
+      .page{padding:20px}
+      .hero,.grid-2,.grid-3,.grid-4,.timeline,.week-list,.compare-grid{
+        grid-template-columns:1fr;
+      }
+      h2{font-size:34px}
+    }
+    @media print{
+      .sidebar,.toolbar,.footer-nav{display:none !important}
+      .app{display:block}
+      body{background:#fff}
+      .main{padding:0}
+      .page{
+        display:block !important;
+        border:none;
+        box-shadow:none;
+        padding:0;
+        margin:0 0 24px;
+        background:#fff;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <h1>Casa growth<br>plan</h1>
+        <p>Премиальный формат для презентации стратегии роста студии без перегруза и без искусственных цифр.</p>
+      </div>
+      <div class="nav" id="nav"></div>
+    </aside>
+
+    <main class="main">
+      <div class="toolbar">
+        <div class="crumb" id="crumb">Раздел 1</div>
+        <div class="actions">
+          <button class="btn" onclick="window.print()">Печать / PDF</button>
+          <button class="btn" id="prevTop">← Назад</button>
+          <button class="btn" id="nextTop">Далее →</button>
+        </div>
+      </div>
+
+      <section class="page active" data-title="1. Стратегическое резюме">
+        <h2>Стратегическое резюме</h2>
+        
+
+        <div class="hero">
+          <div class="hero-main">
+            <h3 style="margin-top:0;color:#fff">Что должно появиться через 12 месяцев</h3>
+            <p>Единый коммерческий контур, где Instagram, офис, рекомендации, сайт и партнерские каналы работают не отдельно, а внутри одной системы. Клиентский путь становится прозрачным, продажи перестают зависеть только от ручной коммуникации, а студия получает основу для масштабирования.</p>
+          </div>
+          <div class="hero-side">
+            <div class="stat">
+              <div class="label">Лиды</div>
+              <div class="value">x → 1.5x–1.8x</div>
+              <div class="note">Рост входящего потока за счет сайта, квиза, контента, платного трафика и партнеров.</div>
+            </div>
+            <div class="stat">
+              <div class="label">Конверсия</div>
+              <div class="value">x → 1.2x–1.35x</div>
+              <div class="note">Эффект от CRM, скорости ответа, скриптов и follow-up дисциплины.</div>
+            </div>
+            <div class="stat">
+              <div class="label">Средний чек</div>
+              <div class="value">x → 1.15x–1.3x</div>
+              <div class="note">Рост за счет мебели, комплектации, реализации и premium-пакетов.</div>
+            </div>
+            <div class="stat">
+              <div class="label">Выручка</div>
+              <div class="value">x → 1.4x–1.7x</div>
+              <div class="note">Рабочий реалистичный сценарий при системном исполнении плана.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-nav">
+          <span class="small"></span>
+          <button class="btn nextBtn">Далее →</button>
+        </div>
+      </section>
+
+      <section class="page" data-title="2. Прогноз и визуальная модель">
+        <h2>Прогноз и визуальная модель</h2>
+        
+
+        <div class="compare-grid">
+          <div class="compare-box">
+            <h3 style="margin-top:0">Рабочий сценарий</h3>
+            <div class="x-metric">
+              <div class="name">Лиды</div>
+              <div class="formula">x × 1.5–1.8</div>
+            </div>
+            <div class="x-metric">
+              <div class="name">Конверсия в договор</div>
+              <div class="formula">x × 1.2–1.35</div>
+            </div>
+            <div class="x-metric">
+              <div class="name">Средний чек</div>
+              <div class="formula">x × 1.15–1.3</div>
+            </div>
+            <div class="x-metric">
+              <div class="name">Итоговая выручка</div>
+              <div class="formula">x × 1.4–1.7</div>
+            </div>
+          </div>
+
+          <div class="compare-box">
+            <h3 style="margin-top:0">Источники эффекта</h3>
+            <div class="x-metric">
+              <div class="name">Новый входящий поток</div>
+              <div class="formula">site + quiz + paid + partners</div>
+            </div>
+            <div class="x-metric">
+              <div class="name">Выше конверсия</div>
+              <div class="formula">CRM + SLA + scripts + follow-up</div>
+            </div>
+            <div class="x-metric">
+              <div class="name">Больше чек</div>
+              <div class="formula">furniture + turnkey + premium</div>
+            </div>
+            <div class="x-metric">
+              <div class="name">Новый premium-слой</div>
+              <div class="formula">smart home pilot</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <h3 style="margin-top:0">Сравнение модели роста</h3>
+          <div class="bars" id="bars"></div>
+          <div class="legend">
+            <span class="item base">Текущая база</span>
+            <span class="item future">Целевой уровень</span>
+          </div>
+        </div>
+
+        <div class="footer-nav">
+          <button class="btn prevBtn">← Назад</button>
+          <button class="btn nextBtn">Далее →</button>
+        </div>
+      </section>
+
+      <section class="page" data-title="3. KPI и опорные блоки">
+        <h2>KPI и опорные блоки</h2>
+        <p class="lead">Управление строится на трех блоках: поток, конверсия, экономика сделки. Контроль идет по неделе, месяцу и кварталу.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Блок</th>
+                <th>Ключевые метрики</th>
+                <th>Зачем это нужно</th>
+                <th>Частота контроля</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Поток</td>
+                <td>Количество лидов, источники, доля каналов, стоимость входящего обращения</td>
+                <td>Понимать, где появляется рост и какие каналы масштабировать</td>
+                <td>Неделя / месяц</td>
+              </tr>
+              <tr>
+                <td>Конверсия</td>
+                <td>Скорость ответа, лид → консультация, консультация → КП, КП → договор</td>
+                <td>Убирать потери на каждом этапе сделки</td>
+                <td>Ежедневно / неделя</td>
+              </tr>
+              <tr>
+                <td>Чек</td>
+                <td>Средний чек, доля upsell, мебель, комплектация, реализация, premium-пакеты</td>
+                <td>Растить выручку без зависимости только от количества лидов</td>
+                <td>Месяц / квартал</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="grid-3" style="margin-top:18px">
+          <div class="card">
+            <h4>Поток</h4>
+            <p class="mini">Instagram, сайт, квиз, рекомендации, партнеры и рекламные тесты должны работать как единая система.</p>
+          </div>
+          <div class="card">
+            <h4>Конверсия</h4>
+            <p class="mini">Нужны строгая CRM-дисциплина, понятная воронка, скорость реакции и повторные касания.</p>
+          </div>
+          <div class="card">
+            <h4>Чек</h4>
+            <p class="mini">Растет за счет пакетной продажи, мебели, комплектации, реализации и premium-решений.</p>
+          </div>
+        </div>
+
+        <div class="footer-nav">
+          <button class="btn prevBtn">← Назад</button>
+          <button class="btn nextBtn">Далее →</button>
+        </div>
+      </section>
+
+      <section class="page" data-title="4. Квартальная стратегия">
+        <h2>Квартальная стратегия</h2>
+        <p class="lead">Последовательность важнее скорости. Сначала фундамент, затем рост потока, затем рост экономики сделки, затем закрепление и premium-экспансия.</p>
+
+        <div class="timeline">
+          <div class="quarter">
+            <div class="q">Q1</div>
+            <h4>Фундамент</h4>
+            <p class="mini">Аудит, CRM, воронка, базовая аналитика, упаковка услуг.</p>
+          </div>
+          <div class="quarter">
+            <div class="q">Q2</div>
+            <h4>Поток</h4>
+            <p class="mini">Сайт, квиз, кейсы, трафик, улучшение первичной обработки.</p>
+          </div>
+          <div class="quarter">
+            <div class="q">Q3</div>
+            <h4>Чек</h4>
+            <p class="mini">Пакеты, мебель, комплектация, партнерская сеть, конструктор MVP.</p>
+          </div>
+          <div class="quarter">
+            <div class="q">Q4</div>
+            <h4>Закрепление</h4>
+            <p class="mini">SOP, автоматизация, smart home pilot, итоговый аудит.</p>
+          </div>
+        </div>
+
+        <div class="table-wrap" style="margin-top:18px">
+          <table>
+            <thead>
+              <tr>
+                <th>Квартал</th>
+                <th>Фокус</th>
+                <th>Что должно быть на выходе</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Q1</td>
+                <td>Управляемость</td>
+                <td>Все лиды учитываются, этапы сделки прозрачны, есть базовая отчетность.</td>
+              </tr>
+              <tr>
+                <td>Q2</td>
+                <td>Новый спрос</td>
+                <td>Запущены цифровые точки входа и понятна сравнительная эффективность каналов.</td>
+              </tr>
+              <tr>
+                <td>Q3</td>
+                <td>Экономика сделки</td>
+                <td>Растет средний чек и доля комплексных продаж внутри текущего потока.</td>
+              </tr>
+              <tr>
+                <td>Q4</td>
+                <td>Масштаб</td>
+                <td>Система менее зависима от ручного управления и готова к следующему циклу роста.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="footer-nav">
+          <button class="btn prevBtn">← Назад</button>
+          <button class="btn nextBtn">Далее →</button>
+        </div>
+      </section>
+
+      <section class="page" data-title="5. Помесячный roadmap">
+        <h2>Помесячный roadmap</h2>
+        
+
+        <div class="month">
+          <div class="month-head">
+            <h3 style="margin:0">Месяц 1. Аудит</h3>
+            <span class="pill">Диагностика</span>
+          </div>
+          <div class="week-list">
+            <div class="week"><strong>Неделя 1</strong>Карта клиентского пути и источников лидов.</div>
+            <div class="week"><strong>Неделя 2</strong>Аудит Instagram, офиса, сайта и коммерческих материалов.</div>
+            <div class="week"><strong>Неделя 3</strong>Сбор данных по заявкам, встречам, договорам и отказам.</div>
+            <div class="week"><strong>Неделя 4</strong>Список точек потерь и быстрых исправлений.</div>
+          </div>
+        </div>
+
+        <div class="month">
+          <div class="month-head">
+            <h3 style="margin:0">Месяц 2. CRM</h3>
+            <span class="pill">Коммерческий контур</span>
+          </div>
+          <div class="week-list">
+            <div class="week"><strong>Неделя 1</strong>Поля CRM и единая карточка лида.</div>
+            <div class="week"><strong>Неделя 2</strong>Воронка сделки и обязательные статусы.</div>
+            <div class="week"><strong>Неделя 3</strong>Скрипты первого касания и follow-up.</div>
+            <div class="week"><strong>Неделя 4</strong>Первый отчет и запуск дисциплины.</div>
+          </div>
+        </div>
+
+        <div class="month">
+          <div class="month-head">
+            <h3 style="margin:0">Месяц 3. Упаковка</h3>
+            <span class="pill">Оффер и сайт</span>
+          </div>
+          <div class="week-list">
+            <div class="week"><strong>Неделя 1</strong>Продуктовая матрица.</div>
+            <div class="week"><strong>Неделя 2</strong>Офферы по сегментам и пакетам.</div>
+            <div class="week"><strong>Неделя 3</strong>Структура сайта и digital-пути клиента.</div>
+            <div class="week"><strong>Неделя 4</strong>ТЗ на сайт, квиз и аналитику.</div>
+          </div>
+        </div>
+
+        <div class="month">
+          <div class="month-head">
+            <h3 style="margin:0">Месяц 4. Контент</h3>
+            <span class="pill">Кейсы</span>
+          </div>
+          <div class="week-list">
+            <div class="week"><strong>Неделя 1</strong>Упаковка лучших кейсов.</div>
+            <div class="week"><strong>Неделя 2</strong>Контентные рубрики и визуальный сценарий.</div>
+            <div class="week"><strong>Неделя 3</strong>Лид-магниты и экспертные материалы.</div>
+            <div class="week"><strong>Неделя 4</strong>Контент-воронка с переходом в заявку.</div>
+          </div>
+        </div>
+
+        <div class="month">
+          <div class="month-head">
+            <h3 style="margin:0">Месяц 5. Трафик</h3>
+            <span class="pill">Тестирование каналов</span>
+          </div>
+          <div class="week-list">
+            <div class="week"><strong>Неделя 1</strong>Лид-формы, трафик на сайт и квиз.</div>
+            <div class="week"><strong>Неделя 2</strong>Тест офферов по сегментам.</div>
+            <div class="week"><strong>Неделя 3</strong>A/B тест креативов и страниц.</div>
+            <div class="week"><strong>Неделя 4</strong>Перераспределение бюджета в сильные связки.</div>
+          </div>
+        </div>
+
+        <div class="month">
+          <div class="month-head">
+            <h3 style="margin:0">Месяц 6. Конверсия</h3>
+            <span class="pill">Sales discipline</span>
+          </div>
+          <div class="week-list">
+            <div class="week"><strong>Неделя 1</strong>Разбор переписок, звонков и встреч.</div>
+            <div class="week"><strong>Неделя 2</strong>Daily и weekly отчетность.</div>
+            <div class="week"><strong>Неделя 3</strong>Обучение ценностной продаже.</div>
+            <div class="week"><strong>Неделя 4</strong>Запуск регулярного review.</div>
+          </div>
+        </div>
+
+        <div class="month">
+          <div class="month-head">
+            <h3 style="margin:0">Месяц 7. Средний чек</h3>
+            <span class="pill">Package logic</span>
+          </div>
+          <div class="week-list">
+            <div class="week"><strong>Неделя 1</strong>Пакеты Light, Business, Premium.</div>
+            <div class="week"><strong>Неделя 2</strong>Встройка мебели и комплектации.</div>
+            <div class="week"><strong>Неделя 3</strong>Комплексные предложения.</div>
+            <div class="week"><strong>Неделя 4</strong>Обновление коммерческих материалов.</div>
+          </div>
+        </div>
+
+        <div class="month">
+          <div class="month-head">
+            <h3 style="margin:0">Месяц 8. Партнеры</h3>
+            <span class="pill">Referral system</span>
+          </div>
+          <div class="week-list">
+            <div class="week"><strong>Неделя 1</strong>Карта партнеров и приоритетов.</div>
+            <div class="week"><strong>Неделя 2</strong>Партнерское предложение.</div>
+            <div class="week"><strong>Неделя 3</strong>Запуск первых связок.</div>
+            <div class="week"><strong>Неделя 4</strong>Оценка качества партнерских лидов.</div>
+          </div>
+        </div>
+
+        <div class="month">
+          <div class="month-head">
+            <h3 style="margin:0">Месяц 9. Конструктор</h3>
+            <span class="pill">MVP digital</span>
+          </div>
+          <div class="week-list">
+            <div class="week"><strong>Неделя 1</strong>UX-сценарий и параметры выбора.</div>
+            <div class="week"><strong>Неделя 2</strong>Логика рекомендаций и стили.</div>
+            <div class="week"><strong>Неделя 3</strong>Интеграция с CRM.</div>
+            <div class="week"><strong>Неделя 4</strong>Тестирование и доработка.</div>
+          </div>
+        </div>
+
+        <div class="month">
+          <div class="month-head">
+            <h3 style="margin:0">Месяц 10. Smart home</h3>
+            <span class="pill">Premium pilot</span>
+          </div>
+          <div class="week-list">
+            <div class="week"><strong>Неделя 1</strong>Партнер-интегратор.</div>
+            <div class="week"><strong>Неделя 2</strong>Упаковка smart-пакетов.</div>
+            <div class="week"><strong>Неделя 3</strong>Встройка в оффер студии.</div>
+            <div class="week"><strong>Неделя 4</strong>Первые пилотные проекты.</div>
+          </div>
+        </div>
+
+        <div class="month">
+          <div class="month-head">
+            <h3 style="margin:0">Месяц 11. Автоматизация</h3>
+            <span class="pill">SOP</span>
+          </div>
+          <div class="week-list">
+            <div class="week"><strong>Неделя 1</strong>Уведомления, автоответы, задачи.</div>
+            <div class="week"><strong>Неделя 2</strong>Шаблоны брифа, КП и договора.</div>
+            <div class="week"><strong>Неделя 3</strong>SOP по сделке и передаче проекта.</div>
+            <div class="week"><strong>Неделя 4</strong>База знаний и контроль исполнения.</div>
+          </div>
+        </div>
+
+        <div class="month">
+          <div class="month-head">
+            <h3 style="margin:0">Месяц 12. Итог</h3>
+            <span class="pill">Audit</span>
+          </div>
+          <div class="week-list">
+            <div class="week"><strong>Неделя 1</strong>Сравнение годовых показателей.</div>
+            <div class="week"><strong>Неделя 2</strong>Что усиливать, что убирать.</div>
+            <div class="week"><strong>Неделя 3</strong>План следующего цикла роста.</div>
+            <div class="week"><strong>Неделя 4</strong>Финальная презентация собственнику.</div>
+          </div>
+        </div>
+
+        <div class="footer-nav">
+          <button class="btn prevBtn">← Назад</button>
+          <button class="btn nextBtn">Далее →</button>
+        </div>
+      </section>
+
+      <section class="page" data-title="6. Каналы, продукт и digital">
+        <h2>Каналы, продукт и digital</h2>
+        <p class="lead">Вся система роста должна собираться вокруг трех вещей: каналы входа, логика продажи и новая digital-инфраструктура.</p>
+
+        <div class="grid-3">
+          <div class="card">
+            <h4>Каналы</h4>
+            <p class="mini">Instagram, рекомендации, офис, сайт, квиз, партнеры и тестируемый paid social. Ни один канал не должен существовать отдельно от CRM.</p>
+          </div>
+          <div class="card">
+            <h4>Продукт</h4>
+            <p class="mini">Пакеты услуг, мебель, комплектация, реализация и premium-уровень через smart home. Это база для роста среднего чека.</p>
+          </div>
+          <div class="card">
+            <h4>Digital</h4>
+            <p class="mini">Сайт, квиз, конструктор, аналитический дашборд, автоматизации и единая воронка.</p>
+          </div>
+        </div>
+
+        <div class="table-wrap" style="margin-top:18px">
+          <table>
+            <thead>
+              <tr>
+                <th>Блок</th>
+                <th>Что внедряется</th>
+                <th>Ожидаемый эффект</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Сайт + квиз</td>
+                <td>Цифровая точка входа и первичная квалификация</td>
+                <td>Более структурированный и теплый лид</td>
+              </tr>
+              <tr>
+                <td>CRM + дашборд</td>
+                <td>Сделка и аналитика внутри одной системы</td>
+                <td>Прозрачный контроль и меньше потерь</td>
+              </tr>
+              <tr>
+                <td>Конструктор</td>
+                <td>MVP инструмента подбора стиля, бюджета и пакета</td>
+                <td>Современный пользовательский опыт и рост конверсии</td>
+              </tr>
+              <tr>
+                <td>Мебельный цех</td>
+                <td>Встройка в основное коммерческое предложение</td>
+                <td>Рост среднего чека и маржи</td>
+              </tr>
+              <tr>
+                <td>Smart home</td>
+                <td>Пилотный premium-слой через партнера</td>
+                <td>Новый дорогой сегмент внутри текущего бизнеса</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="footer-nav">
+          <button class="btn prevBtn">← Назад</button>
+          <span class="small">Конец документа</span>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const pages = Array.from(document.querySelectorAll('.page'));
+    const nav = document.getElementById('nav');
+    const crumb = document.getElementById('crumb');
+    const prevTop = document.getElementById('prevTop');
+    const nextTop = document.getElementById('nextTop');
+    let current = 0;
+
+    pages.forEach((page, idx) => {
+      const btn = document.createElement('button');
+      btn.textContent = page.dataset.title;
+      btn.addEventListener('click', () => goTo(idx));
+      nav.appendChild(btn);
+    });
+
+    function refresh(){
+      pages.forEach((p,i)=>p.classList.toggle('active', i===current));
+      Array.from(nav.children).forEach((b,i)=>b.classList.toggle('active', i===current));
+      crumb.textContent = pages[current].dataset.title;
+      prevTop.disabled = current===0;
+      nextTop.disabled = current===pages.length-1;
+      document.querySelectorAll('.prevBtn').forEach(btn => btn.onclick = ()=>goTo(Math.max(0,current-1)));
+      document.querySelectorAll('.nextBtn').forEach(btn => btn.onclick = ()=>goTo(Math.min(pages.length-1,current+1)));
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+    function goTo(index){ current=index; refresh(); }
+    prevTop.addEventListener('click', ()=>goTo(Math.max(0,current-1)));
+    nextTop.addEventListener('click', ()=>goTo(Math.min(pages.length-1,current+1)));
+
+    const data = [
+      {label:'Лиды', base:1.0, future:1.65, baseText:'x', futureText:'1.65x'},
+      {label:'Конверсия', base:1.0, future:1.28, baseText:'x', futureText:'1.28x'},
+      {label:'Средний чек', base:1.0, future:1.22, baseText:'x', futureText:'1.22x'},
+      {label:'Выручка', base:1.0, future:1.55, baseText:'x', futureText:'1.55x'}
+    ];
+    const max = Math.max(...data.map(d=>d.future));
+    const bars = document.getElementById('bars');
+    bars.innerHTML = data.map(d => `
+      <div class="group">
+        <div class="pair">
+          <div class="bar base" style="height:${(d.base/max)*100}%"><span>${d.baseText}</span></div>
+          <div class="bar future" style="height:${(d.future/max)*100}%"><span>${d.futureText}</span></div>
+        </div>
+        <div class="bar-label">${d.label}</div>
+      </div>
+    `).join('');
+
+    refresh();
+  </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Casa Interiors Configurator — Визуальный подбор интерьера</title>
+    <meta name="description" content="Визуальный конфигуратор интерьера Casa Interiors Inc. с live preview, pricing engine и AI-ready брифом." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="constructor.css" />
+  </head>
+  <body>
+    <header class="config-header">
+      <div class="container header-inner">
+        <a href="index.html" class="brand"><span>CI</span> Casa Interiors Inc.</a>
+        <div class="header-actions">
+          <button id="resetAllBtn" class="ghost-btn">Сбросить всё</button>
+          <button id="saveDraftBtn" class="ghost-btn">Сохранить черновик</button>
+          <button id="loadDemoBtn" class="primary-btn small">Загрузить demo-сценарий</button>
+        </div>
+      </div>
+      <div class="progress-wrap container">
+        <div>
+          <small id="stepLabel">Шаг 0 из 12</small>
+          <strong id="stepTitle">Подготовка</strong>
+        </div>
+        <div class="progress-outer"><div id="progressBar" class="progress-bar"></div></div>
+        <strong id="progressPercent">0%</strong>
+      </div>
+    </header>
+
+    <main class="container app-shell">
+      <section class="intro-screen" id="introScreen">
+        <div class="intro-copy panel">
+          <p class="eyebrow">Premium interior configurator</p>
+          <h1>Соберите интерьер, который ощущается вашим еще до первой встречи</h1>
+          <p class="lead">Не просто анкета, а визуальный подбор: стиль, палитра, материалы, уровень проекта и ориентировочная стоимость. В конце — готовый AI-бриф и заявка для студии.</p>
+          <div class="intro-points">
+            <article><strong>Live стенд</strong><span>Материалы, палитра и настроение собираются в мини-композицию.</span></article>
+            <article><strong>Расчет стоимости</strong><span>Цена пересчитывается в процессе выбора параметров проекта.</span></article>
+            <article><strong>AI-ready логика</strong><span>Финал формирует структурированный бриф под API и CRM.</span></article>
+          </div>
+          <div class="intro-actions">
+            <button id="startBtn" class="primary-btn">Начать подбор</button>
+            <button id="startDemoBtn" class="ghost-btn">Показать demo-сценарий</button>
+          </div>
+        </div>
+        <div class="intro-visual panel premium-scene">
+          <div class="scene-wall"></div>
+          <div class="scene-floor"></div>
+          <div class="scene-art"></div>
+          <div class="scene-sofa"></div>
+          <div class="scene-table"></div>
+          <div class="scene-lamp"></div>
+          <div class="scene-note glass-note">Подбор собирается визуально и ценово в реальном времени</div>
+        </div>
+      </section>
+
+      <section class="wizard hidden" id="wizardSection">
+        <div class="wizard-main panel">
+          <div id="stepContainer"></div>
+          <div class="wizard-nav">
+            <button id="prevBtn" class="ghost-btn">Назад</button>
+            <button id="nextBtn" class="primary-btn">Далее</button>
+          </div>
+        </div>
+
+        <aside class="summary-column">
+          <section class="preview-card panel" id="previewCard"></section>
+          <section class="price-card panel" id="priceCard"></section>
+          <section class="summary-card panel" id="liveSummary"></section>
+        </aside>
+      </section>
+
+      <section class="result-screen panel hidden" id="resultSection"></section>
+    </main>
+
+    <script src="constructor.js"></script>
+  </body>
+</html>
